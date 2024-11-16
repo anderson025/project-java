@@ -8,29 +8,26 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.cursojava.projetojava.dto.GameDTO;
+import com.cursojava.projetojava.dto.GameListDTO;
 import com.cursojava.projetojava.dto.GameMinDTO;
 import com.cursojava.projetojava.entities.Game;
-import com.cursojava.projetojava.repositories.GameRepository;
+import com.cursojava.projetojava.entities.GameList;
+import com.cursojava.projetojava.repositories.GameListRepository;
 
 
 
 @Service
-public class GameService {
+public class GameListService {
 	
 	@Autowired
-	private GameRepository gameRepository;
+	private GameListRepository gameListRepository;
+	
 	
 	@Transactional(readOnly = true)
-	public GameDTO findById(Long gameId) {
-		Game result = gameRepository.findById(gameId).get();
-		return new GameDTO(result);		
-	}
-	
-	@Transactional(readOnly = true)
-	public List<GameMinDTO> findAll(){
+	public List<GameListDTO> findAll(){
 		
-		List<Game> result = gameRepository.findAll();
-		List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
+		List<GameList> result = gameListRepository.findAll();
+		List<GameListDTO> dto = result.stream().map(x -> new GameListDTO(x)).toList();
 		return dto;
 	}
 }
