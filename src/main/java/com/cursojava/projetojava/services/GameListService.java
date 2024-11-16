@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cursojava.projetojava.dto.GameDTO;
+
 import com.cursojava.projetojava.dto.GameListDTO;
-import com.cursojava.projetojava.dto.GameMinDTO;
-import com.cursojava.projetojava.entities.Game;
 import com.cursojava.projetojava.entities.GameList;
 import com.cursojava.projetojava.repositories.GameListRepository;
 
